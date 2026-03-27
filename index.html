@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onde Ketawa Medan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* GLOBAL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(270deg, #003366, #004080, #0059b3, #003366);
+            background-size: 800% 800%;
+            animation: gradientMove 25s ease infinite;
+            color: #fff;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            cursor: none;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 105, 180, 0.3);
+            /* pink translucent */
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #ff69b4;
+            font-weight: 600;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff69b4;
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 40px;
+            color: #ff69b4;
+        }
+
+        #home {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 80vh;
+        }
+
+        #home p {
+            font-size: 18px;
+            max-width: 700px;
+            margin-top: 20px;
+        }
+
+        #layanan .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            flex: 2;
+        }
+
+        .product {
+            background: rgba(255, 192, 203, 0.2);
+            backdrop-filter: blur(12px);
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 192, 203, 0.4);
+            transition: 0.3s ease-in-out;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .product h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #ff69b4;
+        }
+
+        .product p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .product button {
+            background: #ff69b4;
+            color: #003366;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .product button:hover {
+            background: #ff85c1;
+        }
+
+        .cart {
+            flex: 1;
+            background: rgba(255, 192, 203, 0.2);
+            backdrop-filter: blur(12px);
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            font-size: 16px;
+            border: 1px solid rgba(255, 192, 203, 0.4);
+            color: #fff;
+            max-height: fit-content;
+        }
+
+        .cart h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #ff69b4;
+            text-align: center;
+        }
+
+        .cart ul {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        .cart li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            align-items: center;
+        }
+
+        .cart li button {
+            background: #ff69b4;
+            padding: 4px 8px;
+            font-size: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .cart li button:hover {
+            background: #ff85c1;
+        }
+
+        .total {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #ff69b4;
+        }
+
+        .checkout {
+            background: #ff69b4;
+            font-weight: 600;
+            font-size: 16px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .checkout:hover {
+            background: #ff85c1;
+        }
+
+        .empty {
+            color: #ccc;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        #contact p {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 16px;
+            background: rgba(255, 105, 180, 0.3);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        @media(max-width:900px) {
+            #layanan .content {
+                flex-direction: column;
+            }
+        }
+
+        /* --- CUSTOM CURSOR PINK LIQUID GLASS --- */
+        .cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 105, 180, 0.2);
+            border: 2px solid #ff69b4;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, border 0.2s ease;
+            z-index: 9999;
+            backdrop-filter: blur(6px);
+        }
+
+        a:hover~.cursor,
+        button:hover~.cursor {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 105, 180, 0.1);
+            border: 2px solid #fff;
+        }
+
+        .cursor::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            background: #ff69b4;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Onde Ketawa Medan</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#layanan">Layanan</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Selamat Datang</h2>
+        <p>Kami menyediakan Onde Ketawa Medan yang enak dan bergizi. Klik menu "Layanan" untuk melihat paket lengkap
+            kami.</p>
+    </section>
+
+    <section id="layanan">
+        <h2>Layanan Kami</h2>
+        <div class="content">
+            <div class="products">
+                <div class="product">
+                    <h3>Paket Onde Ketawa Reguler</h3>
+                    <p>Rp 25.000 / Box</p>
+                    <button onclick="addToCart('Paket Onde Ketawa Reguler',25000)">Tambah</button>
+                </div>
+                <div class="product">
+                    <h3>Paket Onde Ketawa Spesial</h3>
+                    <p>Rp 40.000 / Box</p>
+                    <button onclick="addToCart('Paket Onde Ketawa Spesial',40000)">Tambah</button>
+                </div>
+            </div>
+
+            <div class="cart">
+                <h2>Keranjang</h2>
+                <ul id="cartList"></ul>
+                <p class="empty" id="emptyMsg">Belum ada pesanan</p>
+                <p class="total">Total: Rp <span id="total">0</span></p>
+                <button class="checkout" onclick="checkout()">Checkout via WhatsApp</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Kontak Kami</h2>
+        <p>Telepon/WA: 08816104713</p>
+        <p>Email: richardyonatan34@gmail.com</p>
+        <p>Alamat: Jalan Nusa Indah 2 Blok B/284, RT 10/RW 029, Margahayu, Bekasi Timur, Jawa Barat</p>
+    </section>
+
+    <footer>
+        Dikembangkan oleh <span style="color:#ff69b4;">Richard Yonatan</span>
+    </footer>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor"></div>
+
+    <script>
+        // CART FUNCTIONALITY
+        let cart = [], total = 0;
+        function addToCart(name, price) { cart.push({ name, price }); total += price; renderCart(); }
+        function removeFromCart(i) { total -= cart[i].price; cart.splice(i, 1); renderCart(); }
+        function renderCart() {
+            const list = document.getElementById('cartList');
+            const emptyMsg = document.getElementById('emptyMsg');
+            list.innerHTML = '';
+            if (cart.length === 0) { emptyMsg.style.display = 'block'; } else { emptyMsg.style.display = 'none'; }
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `${item.name} - Rp ${item.price} <button onclick="removeFromCart(${index})">Hapus</button>`;
+                list.appendChild(li);
+            });
+            document.getElementById('total').innerText = total;
+        }
+        function checkout() {
+            if (cart.length === 0) { alert('Keranjang masih kosong!'); return; }
+            let message = 'Halo Admin Onde Ketawa Medan,%0ASaya ingin order:%0A';
+            cart.forEach(item => { message += '- ' + item.name + ' Rp ' + item.price + '%0A'; });
+            message += 'Total: Rp ' + total + '%0AMohon konfirmasi pembayaran.';
+            window.open('https://wa.me/628816104713?text=' + message, '_blank');
+        }
+
+        // CUSTOM CURSOR JS
+        const cursor = document.querySelector('.cursor');
+        let mouseX = 0, mouseY = 0, currentX = 0, currentY = 0;
+        document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+        function animateCursor() {
+            currentX += (mouseX - currentX) * 0.15;
+            currentY += (mouseY - currentY) * 0.15;
+            cursor.style.left = currentX + 'px';
+            cursor.style.top = currentY + 'px';
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+    </script>
+</body>
+
+</html>
